@@ -18,4 +18,21 @@ class BlogController extends Controller
         // indexに対応するビューが呼び出されます   
         // 第二引数としてビューで使用するデータの配列compact('blogs')を指定
     }
+
+    // 2.1 createアクション
+    public function create()
+    {
+        return view('blogs.create');
+    }
+    // 2.2 storeアクション
+    public function store(Request $request) // --- (2)
+    {
+        $blog = new Blog();
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->save();
+
+        // redirectを使って、保存後のページの遷移先を定義
+        return redirect('blogs');
+    }
 }

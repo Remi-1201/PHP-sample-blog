@@ -23,5 +23,6 @@
         @endforeach
     </table>
     <br>
+    <a href="/blogs/create">New Blog</a>
     </body>
 </html>

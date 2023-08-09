@@ -11,3 +11,4 @@ Route::get('/', function () {
 Route::get('/blogs', [\App\Http\Controllers\BlogController::class, 'index']); 
 Route::get('/blogs/create', [\App\Http\Controllers\BlogController::class, 'create']);
 Route::post('/blogs', [\App\Http\Controllers\BlogController::class, 'store']);
+Route::get('blogs/{blog}', [\App\Http\Controllers\BlogController::class, 'show']);

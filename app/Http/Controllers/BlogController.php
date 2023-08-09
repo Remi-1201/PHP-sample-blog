@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 // ---1.1 Blogモデルをuseすることで使用できるように定義
-use App\Models\Blog; 
+use App\Models\Blog;
+// use App\Models\Article;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -34,5 +35,16 @@ class BlogController extends Controller
 
         // redirectを使って、保存後のページの遷移先を定義
         return redirect('blogs');
+    }
+
+    public function show($blogId)
+    {
+        $blog = Blog::find($blogId);
+        $params = [
+            'id' => $blog->id,
+            'title' => $blog->title,
+            'content' => $blog->content,
+        ];
+        return view('blogs.show', ['blog' => $params]);
     }
 }

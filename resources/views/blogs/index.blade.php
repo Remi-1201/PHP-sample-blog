@@ -16,10 +16,11 @@
             </tr>
         </thead>
         @foreach($blogs as $blog)
-        <tr>
-            <td>{{ $blog->title }}</td> 
-            <td>{{ $blog->content }}</td>
-        </tr>
+            <tr>
+                <td>{{ $blog['title'] }}</td>
+                <td>{{ $blog['content'] }}</td>
+                <td><a href="{{ url('/blogs', $blog['id']) }}">Detail</a></td> 
+            </tr>
         @endforeach
     </table>
     <br>

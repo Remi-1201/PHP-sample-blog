@@ -66,4 +66,17 @@ class BlogController extends Controller
 
         return redirect("blogs/$id");
     }
+
+    public function delete($id)
+    {
+        $blog = Blog::find($id);
+        return view('blogs.delete', compact('blog'));
+    }
+
+    public function destroy($id)
+    {
+        $blog = Blog::find($id);
+        $blog->delete();
+        return redirect('blogs');
+    }
 }

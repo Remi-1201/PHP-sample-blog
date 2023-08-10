@@ -17,3 +17,6 @@ Route::get('blogs/{blog}', [\App\Http\Controllers\BlogController::class, 'show']
 Route::get('blogs/{blog}/edit', [\App\Http\Controllers\BlogController::class, 'edit']);
 // 「パスがblogs/{blog}・HTTPメソッドがPUT」の組み合わせでupdateを呼び出します
 Route::put('blogs/{blog}', [\App\Http\Controllers\BlogController::class, 'update']);
+
+Route::get('blogs/{blog}/delete', [\App\Http\Controllers\BlogController::class, 'delete']);
+Route::delete('blogs/{blog}', [\App\Http\Controllers\BlogController::class, 'destroy']);

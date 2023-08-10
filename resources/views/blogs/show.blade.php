@@ -6,15 +6,19 @@
     </head>
 
     <body>
+        <h1>{{ $blog->title }}</h1>
         <p>
             <strong>Title:</strong>
-            {{ $blog['title'] }}
+            {{ $blog->title }}
         </p>
 
         <p>
             <strong>Content:</strong>
-            {{ $blog['content'] }}
+            {{ $blog->content }}
         </p>
-        <p><a href="/blogs">Back</a></p>
+        <p> 
+            <a href="/blogs">Back</a> | 
+            <a href="{{ url("/blogs/$blog->id/edit") }}">Edit</a>
+        </p>
     </body>
 </html>

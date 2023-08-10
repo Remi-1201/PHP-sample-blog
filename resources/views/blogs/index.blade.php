@@ -20,6 +20,7 @@
                 <td>{{ $blog['title'] }}</td>
                 <td>{{ $blog['content'] }}</td>
                 <td><a href="{{ url('/blogs', $blog['id']) }}">Detail</a></td> 
+                <td><a href="{{ url("/blogs/$blog->id/edit") }}">Edit</a></td>
             </tr>
         @endforeach
     </table>

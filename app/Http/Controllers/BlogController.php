@@ -37,14 +37,33 @@ class BlogController extends Controller
         return redirect('blogs');
     }
 
-    public function show($blogId)
+    public function show($id)
     {
-        $blog = Blog::find($blogId);
+        $blog = Blog::find($id);
         $params = [
             'id' => $blog->id,
             'title' => $blog->title,
             'content' => $blog->content,
         ];
-        return view('blogs.show', ['blog' => $params]);
+        return view('blogs.show', ['blog' => (object)$params]);
+    }
+
+    public function edit($id)
+    {
+        $blog = Blog::find($id);
+        return view('blogs.edit', compact('blog'));
+    }
+    
+    // 送信されたデータを$requestで受け取ります
+    public function update(Request $request, $blogId) // --- (4)
+    {
+        // 更新するレコードをfindで取得し、
+        // $requestで受けとった値を代入
+        $blog = Blog::find($id);
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->save();
+
+        return redirect("blogs/$id");
     }
 }

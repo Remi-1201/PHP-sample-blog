@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 // use App\Models\Article;
 use Illuminate\Http\Request;
+use App\Http\Controllers\BlogController;
 
 class BlogController extends Controller
 {
@@ -55,7 +56,7 @@ class BlogController extends Controller
     }
     
     // 送信されたデータを$requestで受け取ります
-    public function update(Request $request, $blogId) // --- (4)
+    public function update(Request $request, $id) // --- (4)
     {
         // 更新するレコードをfindで取得し、
         // $requestで受けとった値を代入

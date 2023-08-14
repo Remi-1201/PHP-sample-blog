@@ -15,11 +15,11 @@
             <strong>Content:</strong>
             {{ $blog->content }}
         </p>
-        <form action="{{ url("blogs/$blog->id") }}" method="post">
+        <form action="{{ route('blogs.destroy', $blog) }}" method="post">
             @method('delete')
             @csrf
             <input type="submit" value="Delete">
         </form>
-        <p><a href="/blogs">Back</a></p>
+        <p><a href="{{ route('blogs.index') }}">Back</a></p>
     </body>
 </html>

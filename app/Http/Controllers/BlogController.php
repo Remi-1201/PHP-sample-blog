@@ -35,7 +35,7 @@ class BlogController extends Controller
         $blog->save();
 
         // redirectを使って、保存後のページの遷移先を定義
-        return redirect('blogs');
+        return redirect()->route('blogs.index');
     }
 
     public function show($id)
@@ -65,7 +65,7 @@ class BlogController extends Controller
         $blog->content = $request->content;
         $blog->save();
 
-        return redirect("blogs/$id");
+        return redirect()->route('blogs.show', $blog); 
     }
 
     public function delete($id)
@@ -78,6 +78,6 @@ class BlogController extends Controller
     {
         $blog = Blog::find($id);
         $blog->delete();
-        return redirect('blogs');
+        return redirect()->route('blogs.index');
     }
 }

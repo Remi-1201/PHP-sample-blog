@@ -17,8 +17,8 @@
             {{ $blog->content }}
         </p>
         <p> 
-            <a href="/blogs">Back</a> | 
-            <a href="{{ url("/blogs/$blog->id/edit") }}">Edit</a>
+            <a href="{{ route('blogs.index') }}">Back</a> |
+            <a href="{{ route('blogs.edit', $blog->id) }}">Edit</a>
         </p>
     </body>
 </html>

@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>Editing Blog</h1>
-        <form action="{{ url("blogs/$blog->id") }}" method="post">
+        <form action="{{ route('blogs.update', $blog) }}" method="post">
             @method('put')
             @csrf
             <p><label>Title:<input type="text" name="title" size="30" value="{{ $blog->title }}"/></label></p>

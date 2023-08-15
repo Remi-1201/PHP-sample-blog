@@ -7,6 +7,11 @@
 
     <body>
         <h1>{{ $blog->title }}</h1>
+        @if (session('notice'))
+            <div>
+                {{ session('notice') }}
+            </div>
+        @endif
         <p>
             <strong>Title:</strong>
             {{ $blog->title }}

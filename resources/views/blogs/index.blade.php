@@ -7,6 +7,11 @@
     
     <body>
     <h1>Blogs</h1>
+    @if (session('notice'))
+        <div>
+            {{ session('notice') }}
+        </div>
+    @endif
     <table>
         <thead>
             <tr>

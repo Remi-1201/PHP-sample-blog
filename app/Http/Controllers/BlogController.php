@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\BlogController;
+use App\Http\Requests\BlogRequest;
 
 class BlogController extends Controller
 {
@@ -27,7 +28,7 @@ class BlogController extends Controller
     }
     // 2.2 storeアクション
     // public function store(Request $request)
-    public function store(Request $request, Blog $blog)
+    public function store(BlogRequest $request, Blog $blog)
     {
         // Blog::create($request->all());
         // $blog = new Blog($request->all());
